@@ -25,7 +25,7 @@ end
 ```
 
 ```ruby
-$ vim spec/search/product.rb
+$ vim spec/model/product.rb
 
 # in spec/model/product.rb
 
