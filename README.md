@@ -7,7 +7,7 @@ Currently, This tool only supports RSpec.
 
 ## What's this?
 
-```
+```ruby
 $ vim spec/smart_fixtures/product_master.rb
 
 # in spec/smart_fixtures/product_master.rb
@@ -24,7 +24,7 @@ SmartFixtures.define_dataset :product_master do
 end
 ```
 
-```
+```ruby
 $ vim spec/search/product.rb
 
 # in spec/model/product.rb
@@ -67,7 +67,7 @@ Or install it yourself as:
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/smart_fixtures/fork )
+1. Fork it ( https://github.com/nishio-dens/smart_fixtures/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
