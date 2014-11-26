@@ -6,6 +6,9 @@ class SmartFixtures::VariableSet
   end
 
   def let(variable_name, &block)
-    @variable_set[variable_name] = block.call
+    value = block.call
+    @variable_set[variable_name] = value
+    self.instance_variable_set("@#{variable_name}", value)
+    self.class.send(:attr_reader, variable_name)
   end
 end
