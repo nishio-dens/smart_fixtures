@@ -1,4 +1,5 @@
 if defined?(RSpec)
+  require 'rspec/core' unless defined? RSpec.configure
   RSpec.configure do |c|
     c.extend SmartFixtures
 
