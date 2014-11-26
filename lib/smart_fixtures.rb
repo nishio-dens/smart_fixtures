@@ -21,7 +21,7 @@ module SmartFixtures
     end
   end
 
-  def smart_fixtures(*args)
+  def smart_fixtures(*args, use_fixture_variables: false)
     before(:all) do
       DatabaseRollbacker::Rollbacker.instance.save(:before_load_smart_fixture)
       args.each do |fixture_name|
@@ -29,11 +29,17 @@ module SmartFixtures
           SmartFixtures.fixture_variable_set[fixture_name].nil?
           raise ArgumentError.new("Fixture #{fixture_name} not found")
         end
-        SmartFixtures
-          .fixture_variable_set[fixture_name]
-          .instance_eval(&SmartFixtures.fixture_set[fixture_name])
+        variables = SmartFixtures.fixture_variable_set[fixture_name]
+        variables.instance_eval(&SmartFixtures.fixture_set[fixture_name])
+        if use_fixture_variables
+          variables.variable_set.each do |k, v|
+            self.instance_variable_set("@#{k}", v)
+            self.class.send(:attr_reader, k)
+          end
+        end
       end
     end
+
     after(:all) do
       DatabaseRollbacker::Rollbacker.instance.rollback(:before_load_smart_fixture)
     end
