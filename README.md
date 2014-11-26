@@ -1,7 +1,7 @@
 # SmartFixtures
 
 You can define a Test Dataset in a free-form.
-Defined data set is useable at any time in your unit test files.
+The data set is useable at any time in your unit test files.
 
 Currently, This tool only supports RSpec.
 
