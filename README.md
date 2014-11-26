@@ -48,6 +48,26 @@ describe Product do
 end
 ```
 
+You can use fixtures variable as a local variables like this.
+
+```ruby
+$ vim spec/models/product.rb
+
+SmartFixtures.define_dataset :another_example_dataset do
+  let(:spec_product) { FactoryGirl.create(:product, name: 'HelloTestData') }
+end
+
+describe Product do
+  smart_fixtures :another_example_dataset, use_fixture_variables: true
+
+  describe 'Your test case...' do
+    it do
+      product_name = spec_product.name
+      expect(product_name).to eq('HelloTestData')
+    end
+  end
+end
+
 
 ## Installation
 
