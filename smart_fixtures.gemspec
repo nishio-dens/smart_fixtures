@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["nishio@densan-labs.net"]
   spec.summary       = %q{Smart Fixtures for Unit Testing}
   spec.description   = %q{Smart Fixtures for Unit Testing}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/nishio-dens/smart_fixtures"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
